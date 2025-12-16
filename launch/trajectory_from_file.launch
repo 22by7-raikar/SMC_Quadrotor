@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Argument for trajectory file -->
+    <arg name="trajectory_file" default="$(find smc_quadrotor_cpp)/trajectories/spiral.csv"/>
+    
+    <!-- Start Gazebo with Crazyflie 2.0 -->
+    <include file="$(find rotors_gazebo)/launch/crazyflie2_without_controller.launch">
+        <arg name="enable_logging" value="false"/>
+        <arg name="enable_ground_truth" value="true"/>
+    </include>
+    
+    <!-- SMC Controller with file-based trajectory -->
+    <node name="quadrotor_control" pkg="smc_quadrotor_cpp" type="quadrotor_control_node" output="screen">
+        <!-- Load trajectory from file -->
+        <param name="trajectory_file" value="$(arg trajectory_file)"/>
+        
+        <!-- Controller parameters -->
+        <param name="mass" value="0.027"/>
+        <param name="gravity" value="9.81"/>
+        <param name="kp_xy" value="90.0"/>
+        <param name="kd_xy" value="10.0"/>
+        <param name="lambda_z" value="7.0"/>
+        <param name="eta_z" value="10.0"/>
+        <param name="lambda_phi" value="12.0"/>
+        <param name="eta_phi" value="120.0"/>
+        <param name="lambda_theta" value="12.0"/>
+        <param name="eta_theta" value="120.0"/>
+        <param name="lambda_psi" value="8.0"/>
+        <param name="eta_psi" value="10.0"/>
+    </node>
+</launch>

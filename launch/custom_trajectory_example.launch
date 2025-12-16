@@ -1,0 +1,54 @@
+<launch>
+  <!-- Launch Crazyflie 2.0 simulation without controller -->
+  <include file="$(find rotors_gazebo)/launch/crazyflie2_without_controller.launch">
+    <arg name="mav_name" value="crazyflie2" />
+    <arg name="world_name" value="basic" />
+    <arg name="enable_logging" value="false" />
+    <arg name="enable_ground_truth" value="true" />
+    <arg name="log_file" value="crazyflie2" />
+  </include>
+
+  <!-- Launch SMC Controller Node with Custom Trajectory -->
+  <node name="quadrotor_control_cpp" pkg="smc_quadrotor_cpp" type="quadrotor_control_node" output="screen">
+    <!-- Physical parameters (Crazyflie 2.0) -->
+    <param name="mass" value="0.027" />
+    <param name="gravity" value="9.81" />
+    <param name="Ix" value="16.571710e-6" />
+    <param name="Iy" value="16.571710e-6" />
+    <param name="Iz" value="29.261652e-6" />
+    <param name="Ip" value="12.65625e-8" />
+    <param name="kF" value="1.28192e-8" />
+    <param name="kM" value="5.964552e-3" />
+    <param name="arm_length" value="0.046" />
+    <param name="omega_min" value="0" />
+    <param name="omega_max" value="2618" />
+    
+    <!-- PD gains for x, y position control -->
+    <param name="kp_xy" value="90.0" />
+    <param name="kd_xy" value="10.0" />
+    
+    <!-- SMC parameters for z (altitude) -->
+    <param name="lambda_z" value="7.0" />
+    <param name="eta_z" value="10.0" />
+    
+    <!-- SMC parameters for phi (roll) -->
+    <param name="lambda_phi" value="12.0" />
+    <param name="eta_phi" value="120.0" />
+    
+    <!-- SMC parameters for theta (pitch) -->
+    <param name="lambda_theta" value="12.0" />
+    <param name="eta_theta" value="120.0" />
+    
+    <!-- SMC parameters for psi (yaw) -->
+    <param name="lambda_psi" value="8.0" />
+    <param name="eta_psi" value="10.0" />
+    
+    <!-- EXAMPLE: Figure-8 Trajectory -->
+    <!-- Takeoff -> Move forward -> Circle right -> Circle left -> Return -> Land -->
+    <rosparam param="trajectory/waypoints_x">[0.0, 0.0, 1.5, 2.0, 1.5, 0.5, 0.0, 0.0, 0.0]</rosparam>
+    <rosparam param="trajectory/waypoints_y">[0.0, 0.0, 0.0, 0.5, 1.0, 1.0, 0.5, 0.0, 0.0]</rosparam>
+    <rosparam param="trajectory/waypoints_z">[0.0, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 0.0]</rosparam>
+    <rosparam param="trajectory/time_segments">[5.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 5.0]</rosparam>
+  </node>
+
+</launch>

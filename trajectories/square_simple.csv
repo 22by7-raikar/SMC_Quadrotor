@@ -1,0 +1,21 @@
+# Simple Square Trajectory - 5 waypoints
+# 
+# CSV Format Explanation:
+# - Each row is: x, y, z, time
+# - (x,y,z) = waypoint position in meters
+# - time = duration in seconds to reach THIS waypoint from PREVIOUS waypoint
+# - First waypoint's time = initial delay/takeoff time
+#
+# This trajectory:
+#   Start at origin, wait 5s
+#   Rise to 1m altitude in 10s
+#   Move to (1,0,1) in 15s
+#   Move to (1,1,1) in 15s  
+#   Return to (0,0,0.5) in 20s
+#
+x, y, z, time
+0.0, 0.0, 0.0, 5.0
+0.0, 0.0, 1.0, 10.0
+1.0, 0.0, 1.0, 15.0
+1.0, 1.0, 1.0, 15.0
+0.0, 0.0, 0.5, 20.0

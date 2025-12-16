@@ -1,0 +1,22 @@
+# PDF files
+*.pdf
+
+# Build directories
+build/
+devel/
+logs/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS files
+.DS_Store
+Thumbs.db

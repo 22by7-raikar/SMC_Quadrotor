@@ -1,6 +1,6 @@
 # Sliding Mode Controller for Crazyflie 2.0 Quadrotor
 
-C++ implementation of boundary layer-based sliding mode control for trajectory tracking in Gazebo simulation with **custom trajectory support**.
+C++ implementation of boundary layer-based sliding mode control for trajectory tracking in Gazebo simulation with custom trajectory support.
 
 ## Overview
 

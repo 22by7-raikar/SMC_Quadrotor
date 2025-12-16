@@ -1,19 +1,19 @@
 # Sliding Mode Controller for Crazyflie 2.0 Quadrotor
 
-C++ implementation of boundary layer-based sliding mode control for trajectory tracking in Gazebo simulation with **custom trajectory support**.
+C++ implementation of boundary layer-based sliding mode control for trajectory tracking in Gazebo simulation with custom trajectory support.
 
 ## Overview
 
 This ROS package implements a robust sliding mode controller (SMC) for the Crazyflie 2.0 quadrotor. The controller tracks quintic polynomial trajectories through multiple waypoints with high precision and supports arbitrary user-defined trajectories via ROS parameters.
 
 **Key Features:**
-- ✅ Boundary layer SMC for altitude and attitude control
-- ✅ Quintic polynomial trajectory generation with zero velocity/acceleration at waypoints
-- ✅ **Custom trajectory support** via ROS parameters or programmatic API
-- ✅ Gyroscopic coupling compensation
-- ✅ Native C++ implementation for real-time performance
-- ✅ Trajectory visualization and analysis tools
-- ✅ Production-ready with validated performance (mean error <0.02m)
+- Boundary layer SMC for altitude and attitude control
+- Quintic polynomial trajectory generation with zero velocity/acceleration at waypoints
+- **Custom trajectory support** via ROS parameters or programmatic API
+- Gyroscopic coupling compensation
+- C++ implementation for real-time performance
+- Trajectory visualization and analysis tools
+- Production-ready with validated performance (mean error <0.02m)
 
 ## Requirements
 

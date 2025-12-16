@@ -29,7 +29,7 @@ public:
         if (nh_private_.getParam("trajectory_file", trajectory_file)) {
             ROS_INFO("Loading trajectory from file: %s", trajectory_file.c_str());
             if (traj_gen_->loadFromFile(trajectory_file)) {
-                ROS_INFO("✓ Successfully loaded trajectory from file");
+                ROS_INFO("Successfully loaded trajectory from file");
             } else {
                 ROS_ERROR("Failed to load trajectory from file, using default");
                 traj_gen_ = std::make_shared<smc_quadrotor::TrajectoryGenerator>(true);
@@ -153,7 +153,7 @@ private:
             return false;
         }
         
-        ROS_INFO("✓ Loaded custom trajectory with %zu waypoints, total time: %.1fs", 
+        ROS_INFO("Loaded custom trajectory with %zu waypoints, total time: %.1fs", 
                  waypoints.size(), traj_gen_->getTotalTime());
         return true;
     }

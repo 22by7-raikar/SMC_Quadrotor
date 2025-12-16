@@ -178,7 +178,7 @@ def visualize_trajectory(waypoints_x, waypoints_y, waypoints_z, time_segments,
     
     # Basic statistics
     total_distance = np.sum(np.sqrt(np.diff(x_traj)**2 + np.diff(y_traj)**2 + np.diff(z_traj)**2))
-    print(f"\n📊 STATISTICS:")
+    print(f"\nSTATISTICS:")
     print(f"   Total Duration: {time_points[-1]:.1f} seconds")
     print(f"   Total Distance: {total_distance:.2f} meters")
     print(f"   Number of Waypoints: {len(waypoints_x)}")
@@ -198,7 +198,7 @@ def visualize_trajectory(waypoints_x, waypoints_y, waypoints_z, time_segments,
         t_cumulative = sum(time_segments[:i]) if i > 0 else 0
         print(f"   W{i}: ({waypoints_x[i]:.1f}, {waypoints_y[i]:.1f}, {waypoints_z[i]:.1f}) at t={t_cumulative:.1f}s")
     
-    print(f"\n⏱️  SEGMENTS:")
+    print(f"\nSEGMENTS:")
     for i, T in enumerate(time_segments):
         dist = np.sqrt((waypoints_x[i+1]-waypoints_x[i])**2 + 
                        (waypoints_y[i+1]-waypoints_y[i])**2 + 
@@ -206,7 +206,7 @@ def visualize_trajectory(waypoints_x, waypoints_y, waypoints_z, time_segments,
         avg_speed = dist / T if T > 0 else 0
         print(f"   Segment {i}: {T:.1f}s, dist={dist:.2f}m, speed={avg_speed:.3f}m/s")
     
-    print(f"\n💾 Saved to: {output_file}")
+    print(f"\nSaved to: {output_file}")
     print("="*80 + "\n")
     
     return fig
@@ -217,12 +217,12 @@ def main():
     if len(sys.argv) > 1 and sys.argv[1] == '--help':
         print("Trajectory Visualization Tool")
         print("\nUsage:")
-        print("  python3 visualize_trajectory.py           # Visualize default figure-8")
+        print("  python3 visualize_trajectory.py           # Visualize default trajectory")
         print("  python3 visualize_trajectory.py --help    # Show this help")
         print("\nTo customize, edit the waypoints and time_segments in the script.")
         return
     
-    # Example: Figure-8 trajectory (from custom_trajectory_example.launch)
+    # Example: Custom trajectory (from custom_trajectory_example.launch)
     waypoints_x = [0.0, 0.0, 1.5, 2.0, 1.5, 0.5, 0.0, 0.0, 0.0]
     waypoints_y = [0.0, 0.0, 0.0, 0.5, 1.0, 1.0, 0.5, 0.0, 0.0]
     waypoints_z = [0.0, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 0.0]

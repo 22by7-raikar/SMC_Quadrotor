@@ -43,7 +43,7 @@
     <param name="lambda_psi" value="8.0" />
     <param name="eta_psi" value="10.0" />
     
-    <!-- EXAMPLE: Figure-8 Trajectory -->
+    <!-- EXAMPLE: Custom Trajectory -->
     <!-- Takeoff -> Move forward -> Circle right -> Circle left -> Return -> Land -->
     <rosparam param="trajectory/waypoints_x">[0.0, 0.0, 1.5, 2.0, 1.5, 0.5, 0.0, 0.0, 0.0]</rosparam>
     <rosparam param="trajectory/waypoints_y">[0.0, 0.0, 0.0, 0.5, 1.0, 1.0, 0.5, 0.0, 0.0]</rosparam>

@@ -7,13 +7,13 @@ C++ implementation of boundary layer-based sliding mode control for trajectory t
 This ROS package implements a robust sliding mode controller (SMC) for the Crazyflie 2.0 quadrotor. The controller tracks quintic polynomial trajectories through multiple waypoints with high precision and supports arbitrary user-defined trajectories via ROS parameters.
 
 **Key Features:**
-- ✅ Boundary layer SMC for altitude and attitude control
-- ✅ Quintic polynomial trajectory generation with zero velocity/acceleration at waypoints
-- ✅ **Custom trajectory support** via ROS parameters or programmatic API
-- ✅ Gyroscopic coupling compensation
-- ✅ Native C++ implementation for real-time performance
-- ✅ Trajectory visualization and analysis tools
-- ✅ Production-ready with validated performance (mean error <0.02m)
+- Boundary layer SMC for altitude and attitude control
+- Quintic polynomial trajectory generation with zero velocity/acceleration at waypoints
+- **Custom trajectory support** via ROS parameters or programmatic API
+- Gyroscopic coupling compensation
+- Native C++ implementation for real-time performance
+- Trajectory visualization and analysis tools
+- Production-ready with validated performance (mean error <0.02m)
 
 ## Requirements
 
@@ -36,7 +36,7 @@ smc_quadrotor_cpp/
 │   └── quadrotor_control_node.cpp
 ├── launch/
 │   ├── quadrotor_control.launch            # Default trajectory
-│   └── custom_trajectory_example.launch    # Figure-8 example (validated)
+│   └── custom_trajectory_example.launch    # Custom trajectory example
 ├── config/
 │   └── smc_controller.yaml
 ├── visualize_trajectory.py          # Trajectory analysis tool
@@ -143,16 +143,10 @@ For small trajectories, use inline parameters:
 </launch>
 ```
 
-**Validated Example: Figure-8 Trajectory**
+**Example: Custom Trajectory**
 ```bash
 roslaunch smc_quadrotor_cpp custom_trajectory_example.launch
 ```
-
-Performance metrics from Gazebo testing:
-- **9 waypoints**, 8 segments, **105 seconds** total mission time
-- Max velocity: 0.561 m/s, Max acceleration: 0.344 m/s²
-- Mean tracking error: **0.023 m**, Max error: 0.215 m
-- Safe for Crazyflie 2.0: no motor saturation, smooth execution
 
 #### Method 3: Programmatic API
 
@@ -232,7 +226,7 @@ smc_quadrotor_cpp/
 │   └── quadrotor_control_node.cpp
 ├── launch/
 │   ├── quadrotor_control.launch            # Default trajectory
-│   ├── custom_trajectory_example.launch    # Figure-8 (9 waypoints)
+│   ├── custom_trajectory_example.launch    # Custom trajectory example
 │   └── trajectory_from_file.launch         # File-based loading
 ├── trajectories/
 │   ├── square_simple.csv                   # 5 waypoints
@@ -266,12 +260,6 @@ smc_quadrotor_cpp/
 - Max error: 0.091 m
 - RMSE: 0.030 m
 - Waypoint precision: <1mm
-
-### Custom Trajectory (Figure-8 Example)
-- Mission time: 105 seconds, 8.12 m total distance
-- Mean tracking error: 0.023 m, Max error: 0.215 m
-- Max velocity: 0.561 m/s, Max acceleration: 0.344 m/s²
-- No motor saturation, smooth execution throughout
 
 ## Documentation
 

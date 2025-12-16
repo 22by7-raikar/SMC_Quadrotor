@@ -213,13 +213,10 @@ if (!traj_gen->setTrajectory(waypoints, time_segments)) {
 <rosparam param="trajectory/time_segments">[5.0, 8.0, 8.0, 8.0]</rosparam>
 ```
 
-**Figure-8 (Validated):**
+**Custom Trajectory Example:**
 ```bash
 roslaunch smc_quadrotor_cpp custom_trajectory_example.launch
 ```
-- 9 waypoints, 105 seconds
-- Mean error: 0.023m, Max error: 0.215m
-- Max velocity: 0.561 m/s, Max acceleration: 0.344 m/s²
 
 ---
 
@@ -227,7 +224,7 @@ roslaunch smc_quadrotor_cpp custom_trajectory_example.launch
 
 All trajectories are validated before execution:
 
-### ✅ Valid Trajectory Requirements
+### Valid Trajectory Requirements
 - **Minimum 2 waypoints** (start and end)
 - **Array lengths match**: `waypoints_x.size() == waypoints_y.size() == waypoints_z.size()`
 - **Correct time segments**: `time_segments.size() == waypoints.size() - 1`
@@ -322,11 +319,11 @@ This ensures smooth motion without sudden accelerations that could destabilize t
 **Problem: Controller falls back to default trajectory**
 
 Possible causes and solutions:
-- ✓ Check parameter names: `trajectory/waypoints_x` not `trajectories/...`
-- ✓ Verify all arrays have same length
-- ✓ Ensure time segments count = waypoints - 1
-- ✓ Check all time values are positive
-- ✓ Look for validation error messages in console
+- Check parameter names: `trajectory/waypoints_x` not `trajectories/...`
+- Verify all arrays have same length
+- Ensure time segments count = waypoints - 1
+- Check all time values are positive
+- Look for validation error messages in console
 
 **Problem: Quadrotor oscillates or becomes unstable**
 
@@ -422,5 +419,5 @@ trajectory_file parameter  →  ROS parameters  →  Default
 - **README.md** - Main package documentation
 - **visualize_trajectory.py --help** - Visualization tool usage
 - **launch/trajectory_from_file.launch** - File loading example
-- **launch/custom_trajectory_example.launch** - Figure-8 example
+- **launch/custom_trajectory_example.launch** - Custom trajectory example
 - **trajectories/** - Example trajectory files

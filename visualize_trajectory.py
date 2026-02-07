@@ -222,11 +222,12 @@ def main():
         print("\nTo customize, edit the waypoints and time_segments in the script.")
         return
     
-    # Example: Custom trajectory (from custom_trajectory_example.launch)
-    waypoints_x = [0.0, 0.0, 1.5, 2.0, 1.5, 0.5, 0.0, 0.0, 0.0]
-    waypoints_y = [0.0, 0.0, 0.0, 0.5, 1.0, 1.0, 0.5, 0.0, 0.0]
-    waypoints_z = [0.0, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 0.0]
-    time_segments = [5.0, 20.0, 15.0, 15.0, 15.0, 15.0, 15.0, 5.0]
+    # Default square trajectory from trajectory_generator.h:
+    # (0,0,0) → (0,0,1) → (1,0,1) → (1,1,1) → (0,1,1) → (0,0,1)
+    waypoints_x = [0.0, 0.0, 1.0, 1.0, 0.0, 0.0]
+    waypoints_y = [0.0, 0.0, 0.0, 1.0, 1.0, 0.0]
+    waypoints_z = [0.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    time_segments = [5.0, 15.0, 15.0, 15.0, 15.0]  # Total: 65 seconds
     
     visualize_trajectory(waypoints_x, waypoints_y, waypoints_z, time_segments)
     plt.show()

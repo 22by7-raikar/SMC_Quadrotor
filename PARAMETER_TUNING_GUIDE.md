@@ -297,7 +297,9 @@ These require custom controller modifications beyond the scope of this guide.
 ## Summary
 
 ✅ **Current parameters work well for:** Gentle trajectories <0.3 m/s, scale 0-5m
+
 ⚠️ **May need tuning for:** Higher speeds, aggressive maneuvers, rapid altitude changes
+
 🔧 **Tuning strategy:** Test baseline → identify issues → adjust incrementally → validate
 
 **Remember:** Always test new trajectories in simulation before real flights!
